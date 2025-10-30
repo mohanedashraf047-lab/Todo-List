@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gray: #333;
+  --green: #4bae4f;
+  --light-gray: #edeef0;
+  --dark-gray: #bbb9bb;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  background-color: #333;
+  min-height: 100vh;
+  width: 100%;
+  padding: 10px;
+}
+
+.todo-list {
+  background-color: white;
+  max-width: 550px;
+  margin: 100px auto 20px;
+  padding: 40px 30px;
+  border-radius: 10px;
+}
+
+.todo-list .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-list .title img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.form .form-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.form input {
+  padding: 15px;
+  background-color: var(--light-gray);
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  width: 80%;
+  outline: none;
+}
+
+.form .btn-add {
+  border: none;
+  padding: 15px 30px;
+  background-color: var(--green);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.list-items .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* ✅ Ensures vertical centering */
+  margin-top: 10px;
+}
+
+.list-items .item > div {
+  display: flex;
+  align-items: center; /* ✅ Keeps checkbox + text vertically aligned */
+  gap: 10px; /* Adds nice space between checkbox and text */
+}
+
+.list-items .item .description {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1; /* ✅ Prevents extra vertical padding */
+}
+.list-items .item .description.selected {
+  text-decoration: line-through;
+  color: var(--dark-gray);
+}
+
+.list-items .item .custom-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+/* Hide the default checkbox */
+.list-items .item .custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  margin-right: 10px;
+  height: 0;
+  width: 0;
+}
+
+/* The empty circle (when not checked) */
+.list-items .item .custom-checkbox .checkmark {
+  border: 2px solid var(--gray);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* The green filled check icon */
+.list-items .item .custom-checkbox .check {
+  background-color: var(--green);
+  color: #fff;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Use transitions instead of one-time animation */
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+/* When the check becomes visible */
+.list-items .item .custom-checkbox input[type="checkbox"]:checked + .check {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* The "pop in" animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Optional hover feedback */
+.list-items .item .custom-checkbox:hover .checkmark {
+  border-color: var(--green);
+  transform: scale(1.1);
+}
+
+.btn-remove {
+  background: transparent;
+  border: none;
+  color: var(--gray);
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+}
+
+.btn-remove:hover {
+  background-color: var(--light-gray);
+  color: var(--green);
+  transform: scale(1.1);
+}
+
+.btn-remove:active {
+  transform: scale(0.95);
+}
+
+.btn-clear {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  color: var(--green);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-clear:hover {
+  background-color: var(--green);
+  color: white;
+  transform: scale(1.02);
+}
+
+.btn-clear:active {
+  transform: scale(0.98);
+}

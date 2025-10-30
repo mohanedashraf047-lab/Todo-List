@@ -1,0 +1,24 @@
+Project Structure
+    App
+      - Title
+      - Form 
+      - ListItems
+        - Item
+        - Item
+        - Item
+
+
+
+
+Project Functionality
+  - Adding a task when click to Add button 
+    - check if there is a no value alert message you must add a value
+    - check if there's a value then create list item and add that list item to ul
+
+
+  - clear input after adding a new task 
+  - onClick to circle let task to be checked/unchecked
+  - onClick to x icon remove a task
+
+
+  - Save tasks in the local storage
